@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FarmacoMatch — verificação de compatibilidade medicamentosa. Projeto acadêmico Unifil." />
+  <title>FarmacoMatch 💊 — Verificação de compatibilidade medicamentosa</title>
+
+  <!-- Favicon SVG (emoji pílula) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FarmacoMatch 💊" />
+  <meta property="og:description" content="Verificação de compatibilidade medicamentosa entre classes farmacológicas." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="FarmacoMatch - início">
+        <span class="brand-mark">💊</span>
+        <span class="brand-name">FarmacoMatch</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#o-que-e">O que é</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#acessar">Acessar aplicação</a>
+        <a href="assets/docs/Doc-Tecnica-FarmacoMatch.pdf" target="_blank" rel="noopener noreferrer">📄 Doc. Técnica</a>
+        <a href="assets/docs/Codigo-Fonte-FarmacoMatch.pdf" target="_blank" rel="noopener noreferrer">🐍 Código-fonte</a>
+        <!-- LINK_APP (navbar) -->
+        <a class="btn btn-primary btn-sm" href="#acessar">Abrir app →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Projeto acadêmico · Unifil</p>
+        <h1 class="hero-title">FarmacoMatch <span class="pill">💊</span></h1>
+        <p class="hero-subtitle">Verificação de compatibilidade medicamentosa entre classes farmacológicas.</p>
+
+        <div class="hero-cta">
+          <!-- LINK_APP (botão do hero) — substitua o href pela URL da aplicação rodando no servidor -->
+          <a class="btn btn-primary btn-lg" href="#acessar" id="heroAppLink">
+            Acessar aplicação →
+          </a>
+          <!-- PDF: Documentação Técnica (gerado a partir de Doc-Tecnica-FarmacoMatch.md) -->
+          <a class="btn btn-ghost btn-lg" href="assets/docs/Doc-Tecnica-FarmacoMatch.pdf"
+             target="_blank" rel="noopener noreferrer">
+            📄 Documentação Técnica (PDF)
+          </a>
+          <!-- PDF: Código-fonte (app.py) com visual de IDE -->
+          <a class="btn btn-ghost btn-lg" href="assets/docs/Codigo-Fonte-FarmacoMatch.pdf"
+             target="_blank" rel="noopener noreferrer">
+            🐍 Código-fonte (PDF)
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#como-funciona">Ver como funciona</a>
+        </div>
+
+        <p class="hero-note">App web (Streamlit) · consulta base SQLite local · uso educacional</p>
+      </div>
+    </section>
+
+    <!-- ===================== O QUE É ===================== -->
+    <section id="o-que-e" class="section">
+      <div class="container">
+        <h2 class="section-title">O que é o FarmacoMatch</h2>
+        <p class="section-lead">
+          O FarmacoMatch é uma aplicação web de página única construída com <strong>Streamlit</strong>
+          que permite selecionar dois medicamentos e verificar se existe alguma contraindicação
+          registrada para o uso concomitante deles.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section id="como-funciona" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Como funciona</h2>
+        <p class="section-lead">Três passos rápidos para verificar a compatibilidade entre dois medicamentos.</p>
+
+        <div class="steps">
+          <article class="step-card">
+            <div class="step-num">1</div>
+            <h3>Selecione os medicamentos</h3>
+            <p>Escolha dois medicamentos nos menus suspensos da aplicação, lado a lado.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">2</div>
+            <h3>Clique em &laquo;Verificar&raquo;</h3>
+            <p>A aplicação busca a classe farmacológica de cada um e consulta as interações registradas.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-num">3</div>
+            <h3>Veja o resultado</h3>
+            <p>
+              Card <span class="tag tag-success">verde</span>: sem contraindicação registrada.
+              Card <span class="tag tag-error">vermelho</span>: existe contraindicação para a combinação.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ===================== ACESSAR APLICAÇÃO ===================== -->
+    <section id="acessar" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Acessar aplicação</h2>
+
+        <div class="app-cta">
+          <!--
+            ============================================================
+            LINK_APP (principal)
+            Substitua o href abaixo pela URL da aplicação rodando no servidor.
+            Exemplo: href="https://seu-servidor.com/app"
+            ============================================================
+          -->
+          <a class="btn btn-primary btn-xl" href="#acessar" id="appLink" target="_blank" rel="noopener noreferrer">
+            Abrir FarmacoMatch →
+          </a>
+        </div>
+
+        <!-- Documentação Técnica em PDF -->
+        <div class="doc-cta">
+          <div class="doc-cta-body">
+            <span class="doc-cta-icon">📄</span>
+            <div>
+              <h3>Documentação Técnica</h3>
+              <p>
+                Versão completa em PDF: visão geral, modelo de dados, funções,
+                fluxo de execução, interface/UX e instruções de execução.
+              </p>
+            </div>
+          </div>
+          <a class="btn btn-doc" href="assets/docs/Doc-Tecnica-FarmacoMatch.pdf"
+             target="_blank" rel="noopener noreferrer">
+            Abrir PDF ↗
+          </a>
+        </div>
+
+        <!-- Código-fonte em PDF (visual de IDE) -->
+        <div class="doc-cta doc-cta-code">
+          <div class="doc-cta-body">
+            <span class="doc-cta-icon">🐍</span>
+            <div>
+              <h3>Código-fonte da aplicação</h3>
+              <p>
+                O <code>app.py</code> completo em PDF com visual de IDE: fundo escuro,
+                numeração de linhas e syntax highlighting colorido (Python).
+              </p>
+            </div>
+          </div>
+          <a class="btn btn-doc btn-doc-code" href="assets/docs/Codigo-Fonte-FarmacoMatch.pdf"
+             target="_blank" rel="noopener noreferrer">
+            Abrir PDF ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== DISCLAIMER FIXO ===================== -->
+  <div class="disclaimer-banner" role="note">
+    ⚠️ <strong>AVISO:</strong> Não nos responsabilizamos pelo uso desta ferramenta.
+    As informações são retiradas de fontes da internet e podem conter erros.
+    NÃO use para tratamentos ou uso de medicamentos — consulte sempre um médico.
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark">💊</span>
+        <span>FarmacoMatch</span>
+      </div>
+      <p class="footer-meta">
+        Projeto acadêmico · Unifil · 2026<br />
+        Frontend estático publicado via GitHub Pages.
+      </p>
+      <nav class="footer-links">
+        <a href="#o-que-e">O que é</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#acessar">Acessar aplicação</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

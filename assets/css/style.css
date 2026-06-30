@@ -1,0 +1,257 @@
+/* =========================================================
+   FarmacoMatch Site — estilo estático
+   Paleta inspirada na aplicação Streamlit (app.py)
+   ========================================================= */
+
+:root {
+  --c-title: #2C3E50;
+  --c-subtitle: #7F8C8D;
+  --c-label: #34495E;
+  --c-primary: #3498DB;
+  --c-primary-hover: #2980B9;
+  --c-success-bg: #D4EDDA;
+  --c-success-text: #155724;
+  --c-error-bg: #F8D7DA;
+  --c-error-text: #721C24;
+  --c-bg: #ffffff;
+  --c-bg-alt: #F8FAFC;
+  --c-border: #E5E8EC;
+  --c-text: #2C3E50;
+  --c-muted: #7F8C8D;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 18px rgba(52, 152, 219, 0.18);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --container: 1080px;
+}
+
+/* ---------- Reset leve ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.6;
+  padding-bottom: 3.5rem; /* espaço para o banner fixo */
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+code {
+  background: #EEF2F6;
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+ul { margin: 0; padding-left: 1.2rem; }
+
+/* ---------- Layout ---------- */
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- Navbar ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--c-border);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.brand { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 800; color: var(--c-title); }
+.brand-mark { font-size: 1.4rem; }
+.brand-name { letter-spacing: -0.5px; }
+
+.nav-links { display: flex; align-items: center; gap: 0.4rem; }
+.nav-links a {
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--c-label);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nav-links a:hover { background: #EEF4FA; color: var(--c-primary-hover); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: space-between;
+  width: 36px; height: 24px; padding: 0; background: none; border: 0; cursor: pointer;
+}
+.nav-toggle span { display: block; height: 3px; width: 100%; background: var(--c-title); border-radius: 3px; transition: 0.25s; }
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 600; border-radius: var(--radius);
+  padding: 0.6rem 1.1rem; border: 2px solid transparent;
+  cursor: pointer; transition: all 0.25s ease;
+}
+.btn-sm { padding: 0.45rem 0.85rem; font-size: 0.9rem; }
+.btn-lg { padding: 0.8rem 1.6rem; font-size: 1.05rem; }
+.btn-xl { padding: 1rem 2rem; font-size: 1.15rem; }
+.btn-primary {
+  background: var(--c-primary); color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.btn-primary:hover {
+  background: var(--c-primary-hover);
+  transform: translateY(-2px);
+}
+.btn-ghost { background: transparent; color: var(--c-primary-hover); border-color: var(--c-border); }
+.btn-ghost:hover { background: #EEF4FA; border-color: var(--c-primary); }
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 4.5rem 0 3.5rem;
+  background: linear-gradient(180deg, #F2F9FF 0%, #ffffff 100%);
+}
+.eyebrow {
+  text-transform: uppercase; letter-spacing: 2px; font-size: 0.78rem;
+  font-weight: 600; color: var(--c-primary-hover); margin: 0 0 0.75rem;
+}
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800; color: var(--c-title);
+  letter-spacing: -1px; margin: 0 0 0.5rem;
+}
+.hero-title .pill { display: inline-block; transform: translateY(-2px); }
+.hero-subtitle { font-size: 1.2rem; color: var(--c-subtitle); margin: 0 auto 2rem; max-width: 620px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.hero-note { margin-top: 1.5rem; font-size: 0.85rem; color: var(--c-muted); }
+
+/* ---------- Sections ---------- */
+.section { padding: 4rem 0; }
+.section-alt { background: var(--c-bg-alt); }
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800; color: var(--c-title);
+  margin: 0 0 0.75rem; letter-spacing: -0.5px;
+}
+.section-lead { font-size: 1.1rem; color: var(--c-subtitle); max-width: 720px; margin: 0 0 1.25rem; }
+.section-text { max-width: 760px; color: var(--c-label); }
+
+/* ---------- Steps ---------- */
+.steps { display: grid; gap: 1.25rem; grid-template-columns: repeat(3, 1fr); margin-top: 1.5rem; }
+.step-card {
+  background: #fff; border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg); padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow-sm); transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.step-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--c-primary); color: #fff;
+  font-weight: 800; display: grid; place-items: center; margin-bottom: 0.85rem;
+}
+.step-card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; color: var(--c-title); }
+.step-card p { margin: 0; color: var(--c-label); }
+
+/* ---------- Tags ---------- */
+.tag { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700; }
+.tag-success { background: var(--c-success-bg); color: var(--c-success-text); }
+.tag-error { background: var(--c-error-bg); color: var(--c-error-text); }
+
+/* ---------- Badges ---------- */
+.badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0 2rem; }
+.badge {
+  background: #fff; border: 1px solid var(--c-border);
+  color: var(--c-label); font-weight: 600;
+  padding: 0.4rem 0.9rem; border-radius: 999px; box-shadow: var(--shadow-sm);
+}
+
+/* ---------- Grid 2 colunas ---------- */
+.grid-2 { display: grid; gap: 1.25rem; grid-template-columns: repeat(2, 1fr); }
+.info-card {
+  background: #fff; border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.info-card h3 { margin: 0 0 0.6rem; color: var(--c-title); }
+.bullets li { margin-bottom: 0.45rem; color: var(--c-label); }
+
+/* ---------- CTA App ---------- */
+.app-cta {
+  text-align: center;
+  background: #fff; border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg); padding: 2.5rem 1.5rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 1.5rem;
+}
+.app-hint { margin: 1.25rem 0 0; color: var(--c-muted); }
+
+/* ---------- Bloco Documentação Técnica (PDF) ---------- */
+.doc-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.25rem; flex-wrap: wrap;
+  background: #fff; border: 1px solid var(--c-border);
+  border-left: 4px solid var(--c-primary);
+  border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm); margin-top: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.doc-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.doc-cta-body { display: flex; align-items: center; gap: 1rem; }
+.doc-cta-icon { font-size: 2rem; line-height: 1; }
+.doc-cta h3 { margin: 0 0 0.25rem; color: var(--c-title); font-size: 1.1rem; }
+.doc-cta p { margin: 0; color: var(--c-label); font-size: 0.95rem; max-width: 540px; }
+.btn-doc {
+  background: var(--c-title); color: #fff; font-weight: 700;
+  padding: 0.7rem 1.4rem; border-radius: var(--radius);
+  white-space: nowrap; transition: all 0.25s ease;
+}
+.btn-doc:hover { background: var(--c-primary-hover); transform: translateY(-2px); }
+.doc-cta-code { border-left-color: #16A34A; }
+.btn-doc-code { background: #16A34A; }
+.btn-doc-code:hover { background: #15803D; }
+
+/* ---------- Disclaimer fixo (réplica do app) ---------- */
+.disclaimer-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: #FFF3CD; color: #856404;
+  border-top: 2px solid #FFEEBA;
+  padding: 0.55rem 1rem; font-size: 0.82rem; text-align: center; font-weight: 600;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+.disclaimer-banner strong { color: #B71C1C; }
+
+/* ---------- Footer ---------- */
+.footer { background: #0F172A; color: #CBD5E1; padding: 2.5rem 0; }
+.footer-inner { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; text-align: center; }
+.footer-brand { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 800; color: #fff; }
+.footer-meta { margin: 0; font-size: 0.9rem; line-height: 1.6; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.footer-links a { color: #93C5FD; font-weight: 600; }
+.footer-links a:hover { color: #fff; text-decoration: underline; }
+
+/* ---------- Animação fade-in (via IntersectionObserver) ---------- */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 820px) {
+  .steps { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .doc-cta { flex-direction: column; align-items: flex-start; }
+  .doc-cta .btn-doc { width: 100%; text-align: center; }
+}
+@media (max-width: 680px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; align-items: stretch;
+    gap: 0; padding: 0.5rem 1rem 1rem;
+    background: #fff; border-bottom: 1px solid var(--c-border);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-12px); opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .nav-links a { width: 100%; }
+  .nav-links a.btn { margin-top: 0.5rem; }
+}
